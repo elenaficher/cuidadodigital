@@ -6,8 +6,9 @@
 <title>Entornos Digitales — Violencias, derechos y soberanía tecnológica</title>
 <style>
   :root{
-    --red:#e5382b;
-    --black:#0f0e0d;
+    --red:#E65100;
+    --red-soft:#F4A261;
+    --black:#4527A0;
     --offwhite:#faf8f5;
     --gray:#efece6;
     --darkgray:#3a3835;
@@ -46,7 +47,7 @@
     font-size:20px; font-weight:900; letter-spacing:0.02em;
     display:flex; align-items:center; gap:8px;
   }
-  .logo .dot{color:var(--red);}
+  .logo .dot{color:var(--red-soft);}
   nav.links{display:flex; gap:26px; font-size:12px; font-weight:700; letter-spacing:0.08em;}
   nav.links a{opacity:0.85; padding:4px 0; border-bottom:2px solid transparent;}
   nav.links a:hover{opacity:1; border-bottom:2px solid var(--red);}
@@ -61,7 +62,7 @@
   }
   .hero .wrap{display:flex; align-items:center; justify-content:space-between; gap:40px;}
   .hero-eyebrow{
-    color:var(--red); font-weight:800; letter-spacing:0.25em; font-size:13px; margin-bottom:18px;
+    color:var(--red-soft); font-weight:800; letter-spacing:0.25em; font-size:13px; margin-bottom:18px;
   }
   .hero h1{font-size:44px; max-width:560px;}
   .hero p.sub{
@@ -117,6 +118,7 @@
     content:"—"; position:absolute; left:0; color:var(--red); font-weight:900;
   }
   ul.bullets li strong{color:var(--black);}
+  #derechos ul.bullets li::before{color:var(--red-soft);}
 
   /* table */
   .table-wrap{overflow-x:auto; margin-top:28px;}
@@ -135,10 +137,10 @@
 
   /* stat / number grid */
   .numbers{background:var(--black); color:#fff; padding:70px 0 80px;}
-  .numbers .kicker{color:var(--red); font-weight:800; letter-spacing:0.2em; font-size:13px; margin-bottom:14px;}
+  .numbers .kicker{color:var(--red-soft); font-weight:800; letter-spacing:0.2em; font-size:13px; margin-bottom:14px;}
   .numbers h2{font-size:30px; max-width:640px; margin-bottom:44px;}
   .num-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:36px;}
-  .num-item .num{font-family:'Arial Black',sans-serif; font-size:40px; color:var(--red); margin-bottom:10px;}
+  .num-item .num{font-family:'Arial Black',sans-serif; font-size:40px; color:var(--red-soft); margin-bottom:10px;}
   .num-item h4{font-size:15px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.03em;}
   .num-item p{font-size:14.5px; color:#cfcac2;}
 
@@ -155,7 +157,7 @@
     background:var(--black); color:#a89f95; padding:36px 0; font-size:13px;
   }
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
-  footer .fred{color:var(--red); font-weight:800;}
+  footer .fred{color:var(--red-soft); font-weight:800;}
 
   @media (max-width:760px){
     .hero .wrap{flex-direction:column; align-items:flex-start;}
@@ -191,15 +193,15 @@
     </div>
     <div class="hero-icon">
       <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="75" cy="75" r="70" fill="#e5382b"/>
-        <circle cx="75" cy="75" r="6" fill="#0f0e0d"/>
+        <circle cx="75" cy="75" r="70" fill="#E65100"/>
+        <circle cx="75" cy="75" r="6" fill="#4527A0"/>
         <circle cx="75" cy="30" r="6" fill="#faf8f5"/>
         <circle cx="112" cy="52" r="6" fill="#faf8f5"/>
         <circle cx="112" cy="98" r="6" fill="#faf8f5"/>
         <circle cx="75" cy="120" r="6" fill="#faf8f5"/>
         <circle cx="38" cy="98" r="6" fill="#faf8f5"/>
         <circle cx="38" cy="52" r="6" fill="#faf8f5"/>
-        <g stroke="#0f0e0d" stroke-width="3">
+        <g stroke="#4527A0" stroke-width="3">
           <line x1="75" y1="75" x2="75" y2="30"/>
           <line x1="75" y1="75" x2="112" y2="52"/>
           <line x1="75" y1="75" x2="112" y2="98"/>
@@ -314,12 +316,12 @@
   </div>
 </section>
 
-<svg class="wave band-white" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,0 480,60 720,30 C 960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#0f0e0d"/></svg>
+<svg class="wave band-white" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,0 480,60 720,30 C 960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#4527A0"/></svg>
 
 <section class="content-block" id="derechos" style="background:var(--black); color:#fff;">
   <div class="wrap">
-    <div class="section-title">MARCO DE DERECHOS</div>
-    <h3 style="color:var(--red);">¿Qué son los derechos digitales?</h3>
+    <div class="section-title" style="color:var(--red-soft);">MARCO DE DERECHOS</div>
+    <h3 style="color:var(--red-soft);">¿Qué son los derechos digitales?</h3>
     <div class="body-text" style="color:#dcd7cf;">
       <p>Los derechos digitales son la extensión y adaptación de los derechos humanos al entorno digital. No se trata de "nuevos derechos", sino de la garantía de que derechos fundamentales —como la privacidad, la libertad de expresión, la identidad, el acceso a la información, la participación política y la no discriminación— sean plenamente ejercidos en contextos mediados por tecnología.</p>
     </div>
@@ -402,7 +404,7 @@
   </div>
 </section>
 
-<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,60 480,0 720,30 C 960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#0f0e0d"/></svg>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,60 480,0 720,30 C 960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#4527A0"/></svg>
 
 <section class="numbers" id="repoblar">
   <div class="wrap">
