@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entornos Digitales — Violencias, derechos y soberanía tecnológica</title>
+<style>
+  :root{
+    --red:#e5382b;
+    --black:#0f0e0d;
+    --offwhite:#faf8f5;
+    --gray:#efece6;
+    --darkgray:#3a3835;
+    --line:#e2ddd4;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    color:var(--black);
+    background:var(--offwhite);
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{
+    font-family:'Arial Black','Helvetica Neue',Arial,sans-serif;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+    text-transform:uppercase;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 32px;}
+
+  /* NAV */
+  header.site-nav{
+    background:var(--black);
+    color:#fff;
+    position:sticky; top:0; z-index:50;
+    border-bottom:3px solid var(--red);
+  }
+  .nav-inner{
+    max-width:1100px; margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'Arial Black',sans-serif;
+    font-size:20px; font-weight:900; letter-spacing:0.02em;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{color:var(--red);}
+  nav.links{display:flex; gap:26px; font-size:12px; font-weight:700; letter-spacing:0.08em;}
+  nav.links a{opacity:0.85; padding:4px 0; border-bottom:2px solid transparent;}
+  nav.links a:hover{opacity:1; border-bottom:2px solid var(--red);}
+
+  /* HERO */
+  .hero{
+    background:var(--black);
+    color:#fff;
+    padding:70px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{display:flex; align-items:center; justify-content:space-between; gap:40px;}
+  .hero-eyebrow{
+    color:var(--red); font-weight:800; letter-spacing:0.25em; font-size:13px; margin-bottom:18px;
+  }
+  .hero h1{font-size:44px; max-width:560px;}
+  .hero p.sub{
+    margin-top:22px; max-width:480px; color:#cfcac2; font-size:16px;
+  }
+  .hero-icon{flex-shrink:0;}
+
+  /* section headings */
+  .section-title{
+    color:var(--red);
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:0.06em;
+    margin-bottom:10px;
+  }
+  .lead{
+    padding:70px 0 40px;
+  }
+  .lead-top{display:flex; align-items:flex-start; gap:24px; margin-bottom:24px;}
+  .lead h2{font-size:34px; color:var(--black);}
+  .lead .lead-body{max-width:680px; font-size:16.5px; color:#2c2a27;}
+  .lead .lead-body p{margin-bottom:16px;}
+
+  /* wave divider */
+  .wave{display:block; width:100%; height:60px;}
+  .band-gray{background:var(--gray);}
+  .band-white{background:var(--offwhite);}
+
+  section.content-block{padding:56px 0;}
+  section.content-block h3{
+    color:var(--red);
+    font-size:24px;
+    margin-bottom:16px;
+    max-width:720px;
+  }
+  section.content-block .body-text{max-width:720px; font-size:16px; color:#2c2a27;}
+  section.content-block .body-text p{margin-bottom:14px;}
+  section.content-block .body-text strong{color:var(--black);}
+
+  .sub-block{margin-top:20px; padding-left:18px; border-left:3px solid var(--line);}
+  .sub-block h4{
+    font-size:14px; text-transform:none; font-family:Arial,sans-serif; font-weight:800;
+    color:var(--black); margin-bottom:6px;
+  }
+  .sub-block p{font-size:15.5px; color:#2c2a27; margin-bottom:16px;}
+
+  ul.bullets{margin:14px 0 0 0; max-width:720px;}
+  ul.bullets li{
+    list-style:none; position:relative; padding-left:20px; margin-bottom:10px;
+    font-size:15.5px; color:#2c2a27;
+  }
+  ul.bullets li::before{
+    content:"—"; position:absolute; left:0; color:var(--red); font-weight:900;
+  }
+  ul.bullets li strong{color:var(--black);}
+
+  /* table */
+  .table-wrap{overflow-x:auto; margin-top:28px;}
+  table.violence-table{
+    border-collapse:collapse; width:100%; min-width:680px; font-size:14.5px;
+  }
+  table.violence-table th{
+    background:var(--black); color:#fff; text-align:left; padding:12px 14px;
+    font-size:12px; letter-spacing:0.04em; text-transform:uppercase; font-weight:800;
+  }
+  table.violence-table td{
+    padding:14px; border-bottom:1px solid var(--line); vertical-align:top; color:#2c2a27;
+  }
+  table.violence-table tr:nth-child(even) td{background:rgba(0,0,0,0.02);}
+  table.violence-table td.type-cell{font-weight:800; color:var(--black); white-space:nowrap;}
+
+  /* stat / number grid */
+  .numbers{background:var(--black); color:#fff; padding:70px 0 80px;}
+  .numbers .kicker{color:var(--red); font-weight:800; letter-spacing:0.2em; font-size:13px; margin-bottom:14px;}
+  .numbers h2{font-size:30px; max-width:640px; margin-bottom:44px;}
+  .num-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:36px;}
+  .num-item .num{font-family:'Arial Black',sans-serif; font-size:40px; color:var(--red); margin-bottom:10px;}
+  .num-item h4{font-size:15px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.03em;}
+  .num-item p{font-size:14.5px; color:#cfcac2;}
+
+  /* closing statement */
+  .closing{padding:80px 0; text-align:left;}
+  .closing blockquote{
+    font-size:26px; font-weight:800; color:var(--black); max-width:760px;
+    text-transform:uppercase; line-height:1.2; margin-bottom:20px;
+  }
+  .closing blockquote span{color:var(--red);}
+  .closing p.attribution{font-size:15px; color:#4a4842; max-width:680px;}
+
+  footer{
+    background:var(--black); color:#a89f95; padding:36px 0; font-size:13px;
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  footer .fred{color:var(--red); font-weight:800;}
+
+  @media (max-width:760px){
+    .hero .wrap{flex-direction:column; align-items:flex-start;}
+    .hero h1{font-size:32px;}
+    nav.links{display:none;}
+    .num-grid{grid-template-columns:1fr;}
+    .lead-top{flex-direction:column;}
+    .closing blockquote{font-size:21px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="logo">ENTORNOS<span class="dot">·</span>DIGITALES</div>
+    <nav class="links">
+      <a href="#inicio">INICIO</a>
+      <a href="#violencias">VIOLENCIAS</a>
+      <a href="#derechos">DERECHOS</a>
+      <a href="#transitar">TRANSITAR</a>
+      <a href="#repoblar">REPOBLAR</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <div class="hero-eyebrow">INFORME · PERSPECTIVA TRANSFEMINISTA</div>
+      <h1>Territorios digitales en disputa</h1>
+      <p class="sub">Los entornos digitales no son un espacio neutral aparte de lo real: son territorios socio-técnicos donde se reproducen violencias patriarcales, pero también se organizan redes de cuidado y resistencia. Este informe analiza cómo aparecen esas violencias, qué derechos digitales están en juego y qué significa repoblar estos territorios desde la diversidad.</p>
+    </div>
+    <div class="hero-icon">
+      <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="75" cy="75" r="70" fill="#e5382b"/>
+        <circle cx="75" cy="75" r="6" fill="#0f0e0d"/>
+        <circle cx="75" cy="30" r="6" fill="#faf8f5"/>
+        <circle cx="112" cy="52" r="6" fill="#faf8f5"/>
+        <circle cx="112" cy="98" r="6" fill="#faf8f5"/>
+        <circle cx="75" cy="120" r="6" fill="#faf8f5"/>
+        <circle cx="38" cy="98" r="6" fill="#faf8f5"/>
+        <circle cx="38" cy="52" r="6" fill="#faf8f5"/>
+        <g stroke="#0f0e0d" stroke-width="3">
+          <line x1="75" y1="75" x2="75" y2="30"/>
+          <line x1="75" y1="75" x2="112" y2="52"/>
+          <line x1="75" y1="75" x2="112" y2="98"/>
+          <line x1="75" y1="75" x2="75" y2="120"/>
+          <line x1="75" y1="75" x2="38" y2="98"/>
+          <line x1="75" y1="75" x2="38" y2="52"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="lead band-white">
+  <div class="wrap">
+    <div class="section-title">SOBRE ESTE INFORME</div>
+    <div class="lead-top">
+      <h2>¿Qué son los entornos digitales?</h2>
+    </div>
+    <div class="lead-body">
+      <p>Cuando hablamos de <strong>entornos digitales</strong>, no nos referimos únicamente a un "espacio virtual" desprovisto de materialidad. Desde una perspectiva sociológica transfeminista, son <strong>territorios socio-técnicos</strong>: espacios construidos por código, infraestructura física (servidores, cables, antenas), interfaces, algoritmos y, fundamentalmente, por las prácticas humanas que allí se desarrollan.</p>
+      <p>Incluyen plataformas comerciales (redes sociales, mensajería, sitios de citas, foros), infraestructuras de comunicación (internet, redes de datos, dispositivos) y espacios de producción colectiva (wikis, software libre, servidores autogestionados).</p>
+    </div>
+    <ul class="bullets" style="margin-top:22px;">
+      <li><strong>No son neutrales:</strong> están diseñados por corporaciones con lógicas de acumulación de datos y vigilancia.</li>
+      <li><strong>Son extensiones de lo real:</strong> lo que ocurre en ellos tiene consecuencias directas en la vida material, laboral, afectiva y emocional.</li>
+      <li><strong>Son territorios disputados:</strong> allí se reproducen violencias patriarcales, pero también se tejen redes de solidaridad y organización colectiva.</li>
+    </ul>
+    <div class="sub-block">
+      <p>Comprender los entornos digitales como territorios implica asumir que necesitamos soberanía sobre ellos: soberanía tecnológica, soberanía sobre nuestros datos, soberanía sobre nuestras narrativas.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="wave band-white" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,60 480,0 720,30 C 960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#efece6"/></svg>
+
+<section class="content-block" id="violencias" style="background:var(--gray);">
+  <div class="wrap">
+    <div class="section-title">CÓMO Y CUÁNDO APARECEN</div>
+    <h3>¿Cuándo aparecen las violencias en entornos digitales?</h3>
+    <div class="body-text">
+      <p>Las violencias en entornos digitales no aparecen "de la nada" ni son producto de la tecnología en sí misma. Aparecen cuando las estructuras de poder patriarcal, racista, clasista y cis-heteronormativa encuentran en las herramientas digitales un canal amplificado para ejercerse. Identificamos tres momentos clave:</p>
+    </div>
+    <div class="sub-block">
+      <h4>a) En el acceso desigual</h4>
+      <p>La violencia aparece desde el momento en que el acceso a la tecnología y a la conectividad es desigual. Mujeres, personas trans, travestis, campesinas, indígenas y periféricas enfrentan barreras estructurales para acceder a dispositivos, datos y conectividad de calidad. La brecha digital de género es una forma de violencia simbólica e institucional que limita derechos.</p>
+    </div>
+    <div class="sub-block">
+      <h4>b) En el diseño y la arquitectura</h4>
+      <p>Las plataformas están diseñadas con sesgos de género. Los algoritmos de moderación fallan sistemáticamente al proteger a mujeres y diversidades, mientras amplifican discursos de odio. La arquitectura misma de las redes —basada en la exposición, la validación externa y la vigilancia constante— reproduce lógicas de control patriarcal sobre los cuerpos y las identidades.</p>
+    </div>
+    <div class="sub-block">
+      <h4>c) En las prácticas sociales</h4>
+      <p>Las violencias emergen cuando personas, grupos o redes utilizan las herramientas digitales para:</p>
+      <ul class="bullets">
+        <li>Controlar, vigilar o acosar.</li>
+        <li>Difundir contenido íntimo sin consentimiento.</li>
+        <li>Hostigar masivamente para silenciar voces disidentes.</li>
+        <li>Suplantar identidades y dañar reputaciones.</li>
+        <li>Extorsionar económica o sexualmente.</li>
+      </ul>
+      <p style="margin-top:16px;">Estas violencias no son "virtuales". Son violencias reales que ocurren en un territorio digital, con consecuencias físicas, psicológicas, económicas y políticas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-block band-white">
+  <div class="wrap">
+    <div class="section-title">SEIS TIPOS A RECONOCER</div>
+    <h3>¿Qué tipos de violencias existen hoy en día?</h3>
+    <div class="body-text">
+      <p>Desde la perspectiva de la Ley 27.774 y los desarrollos de organizaciones como TEDIC y Save The Children, identificamos al menos seis tipos de violencia de género en entornos digitales que las organizaciones comunitarias deben saber reconocer.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="violence-table">
+        <thead>
+          <tr><th>Tipo de violencia</th><th>Definición</th><th>Ejemplos</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="type-cell">Violencia sexual digital</td>
+            <td>Difusión, distribución o amenaza de difusión de contenido íntimo (imágenes, videos, audios) sin consentimiento.</td>
+            <td>Porno venganza, deepfakes, sextorsión.</td>
+          </tr>
+          <tr>
+            <td class="type-cell">Acecho digital (stalking)</td>
+            <td>Monitoreo constante, vigilancia ilegal mediante dispositivos de geolocalización o software espía.</td>
+            <td>Control de ubicación, envío masivo de mensajes, instalación de stalkerware en celulares.</td>
+          </tr>
+          <tr>
+            <td class="type-cell">Hostigamiento y acoso masivo</td>
+            <td>Ataques coordinados, insultos misóginos, transodio y amenazas con el fin de silenciar.</td>
+            <td>Cancelación violenta, raids de odio, inundación de comentarios intimidatorios.</td>
+          </tr>
+          <tr>
+            <td class="type-cell">Suplantación de identidad</td>
+            <td>Creación de perfiles falsos utilizando la identidad de la víctima para dañar su reputación o ponerla en riesgo.</td>
+            <td>Perfiles falsos en apps de citas, cuentas clonadas, usurpación de identidad laboral.</td>
+          </tr>
+          <tr>
+            <td class="type-cell">Violencia económica digital</td>
+            <td>Control de cuentas bancarias digitales, usurpación de claves, extorsión económica mediante amenazas.</td>
+            <td>Robo de claves de billeteras virtuales, sextorsión con demanda de dinero, bloqueo de acceso a plataformas de trabajo.</td>
+          </tr>
+          <tr>
+            <td class="type-cell">Violencia simbólica digital</td>
+            <td>Reforzamiento de estereotipos de género, invisibilización de liderazgos, apropiación de narrativas.</td>
+            <td>Algoritmos que invisibilizan contenido de activistas, memes misóginos viralizados, apropiación de discursos feministas por parte de agresores.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<svg class="wave band-white" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,0 480,60 720,30 C 960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#0f0e0d"/></svg>
+
+<section class="content-block" id="derechos" style="background:var(--black); color:#fff;">
+  <div class="wrap">
+    <div class="section-title">MARCO DE DERECHOS</div>
+    <h3 style="color:var(--red);">¿Qué son los derechos digitales?</h3>
+    <div class="body-text" style="color:#dcd7cf;">
+      <p>Los derechos digitales son la extensión y adaptación de los derechos humanos al entorno digital. No se trata de "nuevos derechos", sino de la garantía de que derechos fundamentales —como la privacidad, la libertad de expresión, la identidad, el acceso a la información, la participación política y la no discriminación— sean plenamente ejercidos en contextos mediados por tecnología.</p>
+    </div>
+    <ul class="bullets" style="margin-top:22px;">
+      <li style="color:#dcd7cf;"><strong style="color:#fff;">Privacidad y protección de datos:</strong> control sobre nuestra información personal, quién la recopila, cómo se usa y con qué fines.</li>
+      <li style="color:#dcd7cf;"><strong style="color:#fff;">Libertad de expresión en línea:</strong> poder expresarnos sin censura ni represalias, pero también sin que el discurso de odio nos silencie.</li>
+      <li style="color:#dcd7cf;"><strong style="color:#fff;">Acceso a internet como derecho fundamental:</strong> sin acceso universal, gratuito y de calidad, los demás derechos digitales son letra muerta.</li>
+      <li style="color:#dcd7cf;"><strong style="color:#fff;">Identidad digital:</strong> derecho a construir, gestionar y defender nuestra identidad en entornos digitales.</li>
+      <li style="color:#dcd7cf;"><strong style="color:#fff;">No discriminación algorítmica:</strong> derecho a que los sistemas automatizados no reproduzcan sesgos racistas, clasistas, machistas o LGBTIQ+fóbicos.</li>
+      <li style="color:#dcd7cf;"><strong style="color:#fff;">Libertad de reunión y asociación en línea:</strong> poder organizarnos sin vigilancia ilegal ni persecución.</li>
+    </ul>
+    <div class="sub-block" style="border-left-color:#3a3835; margin-top:30px;">
+      <h4 style="color:#fff;">¿Individuales o colectivos? Son ambos.</h4>
+      <p style="color:#dcd7cf;">Desde una perspectiva transfeminista, sostenemos que los derechos digitales son también <strong style="color:#fff;">derechos colectivos</strong>: la violencia digital se ejerce contra cuerpos feminizados y disidentes como grupo social; la vigilancia masiva afecta a comunidades enteras, en especial a organizaciones políticas, sindicales y feministas; y la soberanía tecnológica requiere acciones colectivas —servidores comunitarios, software libre, redes de apoyo mutuo. Negar la dimensión colectiva de los derechos digitales es individualizar un problema estructural.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,60 480,0 720,30 C 960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#faf8f5"/></svg>
+
+<section class="content-block band-white" id="transitar">
+  <div class="section-title" style="margin-left:32px;">IDENTIDAD Y CUIDADO</div>
+  <div class="wrap">
+    <h3>Identidades digitales</h3>
+    <div class="body-text">
+      <p>La identidad digital es el conjunto de datos, narrativas, imágenes, interacciones y rastros que construimos —y que otras personas construyen sobre nosotres— en entornos digitales. No es una "segunda identidad" separada de la offline; es una dimensión más de nuestra identidad integral.</p>
+    </div>
+    <ul class="bullets">
+      <li><strong>Es performática:</strong> nos constituimos en la interacción con plataformas, algoritmos y otras personas. No hay un "yo verdadero" offline y un "yo falso" online.</li>
+      <li><strong>Es un territorio de disputa:</strong> nuestras identidades pueden ser afirmadas y visibilizadas, pero también atacadas, suplantadas o censuradas.</li>
+      <li><strong>Está atravesada por desigualdades estructurales:</strong> personas trans, travestis, mujeres racializadas, cuerpos gordos y personas con discapacidad enfrentan barreras específicas como el deadnaming, la exposición forzada o la censura algorítmica de sus cuerpos.</li>
+    </ul>
+
+    <h3 style="margin-top:44px;">Cómo transitar nuestras identidades en redes</h3>
+    <div class="body-text"><p>Transitar nuestras identidades en entornos digitales implica desarrollar estrategias de soberanía, cuidado y resistencia.</p></div>
+    <div class="sub-block"><h4>Soberanía sobre la narrativa</h4><p>Decidir qué, cuándo, cómo y ante quiénes mostramos partes de nuestra identidad, sin confundir exposición con militancia.</p></div>
+    <div class="sub-block"><h4>Gestión de la privacidad como práctica colectiva</h4><p>La privacidad no es "ocultarse": es poder decidir quién accede a qué partes de nuestra vida, y protegernos mutuamente del acecho.</p></div>
+    <div class="sub-block"><h4>Cuidado digital</h4><p>No estamos obligadas a estar siempre disponibles ni siempre visibles. Pausar, desconectar, bloquear, silenciar y denunciar también son formas de cuidado — y de construir redes que no dejan sola a quien está siendo atacada.</p></div>
+    <div class="sub-block"><h4>Transitar con libertad</h4><p>Para personas trans y travestis, transitar identidades digitales implica poder cambiar nombres, géneros e imágenes sin burocracias ni exposiciones violentas.</p></div>
+  </div>
+</section>
+
+<svg class="wave band-white" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,0 480,60 720,30 C 960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#efece6"/></svg>
+
+<section class="content-block" style="background:var(--gray);">
+  <div class="wrap">
+    <div class="section-title">ESTEREOTIPOS Y ALGORITMOS</div>
+    <h3>Estereotipos que refuerzan estructuras de poder</h3>
+    <div class="body-text">
+      <p>Los estereotipos son imágenes simplificadas y naturalizadas sobre lo que "deben ser" las personas según su género, raza, clase, sexualidad o capacidad. En entornos digitales no desaparecen: se reproducen, amplifican y se incorporan en los propios algoritmos.</p>
+    </div>
+    <ul class="bullets">
+      <li><strong>De género:</strong> las plataformas recomiendan contenidos diferenciados por género desde edades tempranas.</li>
+      <li><strong>Sobre cuerpos:</strong> los algoritmos censuran cuerpos con vello, cuerpos gordos y pezones femeninos, mientras los mismos contenidos en cuerpos masculinizados no son sancionados.</li>
+      <li><strong>Sobre liderazgo:</strong> las voces de mujeres y diversidades son sistemáticamente invisibilizadas o atacadas cuando ocupan espacios de poder discursivo.</li>
+      <li><strong>Raciales y clasistas:</strong> la inteligencia artificial reproduce sesgos racistas en reconocimiento facial, moderación de contenidos y publicidad segmentada.</li>
+    </ul>
+    <div class="sub-block">
+      <p>Reforzar estructuras de poder significa que estos estereotipos no son inocentes: sostienen el patriarcado, el capitalismo de vigilancia y el colonialismo tecnológico. Disputarlos en entornos digitales es una tarea política central.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-block band-white">
+  <div class="wrap">
+    <div class="section-title">MEDIOS COMUNITARIOS</div>
+    <h3>Modernización de medios y el rol de las identidades diversas</h3>
+    <div class="body-text">
+      <p>Los medios comunitarios —radios populares, periódicos barriales, boletines, centros culturales— han sido históricamente espacios de resistencia y construcción de narrativas contrahegemónicas. Su modernización no implica abandonar sus principios por la lógica de las plataformas corporativas, sino apropiarse críticamente de las herramientas digitales para amplificar sus voces sin perder autonomía.</p>
+    </div>
+    <ul class="bullets">
+      <li><strong>Incorporar tecnologías libres:</strong> software de código abierto, servidores autogestionados, plataformas descentralizadas (Mastodon, PeerTube) que no dependan de corporaciones que lucran con nuestros datos.</li>
+      <li><strong>Garantizar la participación de identidades diversas:</strong> lesbianas, bisexuales, trans, travestis, mujeres negras, indígenas y periféricas deben tener no solo voz, sino decisión sobre líneas editoriales y tecnologías.</li>
+      <li><strong>Formar en soberanía tecnológica:</strong> capacitar a comunicadoras populares en seguridad digital y gestión de riesgos frente a ataques coordinados.</li>
+      <li><strong>Repensar el formato:</strong> elegir estratégicamente dónde y cómo estar, priorizando la sostenibilidad de los equipos y el cuidado de quienes producen contenidos.</li>
+    </ul>
+    <div class="sub-block">
+      <p>El rol de las identidades diversas en este proceso es central: son quienes han sido históricamente silenciadas por los medios hegemónicos, y quienes hoy pueden liderar la construcción de medios comunitarios con perspectiva de género, antirracista y anticapitalista.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C 240,60 480,0 720,30 C 960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#0f0e0d"/></svg>
+
+<section class="numbers" id="repoblar">
+  <div class="wrap">
+    <div class="kicker">EL GESTO POLÍTICO FINAL</div>
+    <h2>Repoblar los entornos digitales de diversidades, tecnologías libres y críticas</h2>
+    <div class="num-grid">
+      <div class="num-item">
+        <div class="num">01.</div>
+        <h4>Con diversidades</h4>
+        <p>Visibilizar y celebrar identidades disidentes y cuerpos no normativos. Crear contenido y redes que reflejen la pluralidad de la vida real, ocupando los algoritmos con nuestras propias narrativas.</p>
+      </div>
+      <div class="num-item">
+        <div class="num">02.</div>
+        <h4>Con tecnologías libres</h4>
+        <p>Apostar por software de código abierto que podamos auditar y adaptar. Promover servidores comunitarios y plataformas descentralizadas, y formarnos para dejar de ser usuarias pasivas.</p>
+      </div>
+      <div class="num-item">
+        <div class="num">03.</div>
+        <h4>Con mirada crítica</h4>
+        <p>No naturalizar la tecnología como "neutral". Preguntarnos siempre quién diseña, quién se beneficia, quién queda afuera y qué violencias se reproducen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing band-white">
+  <div class="wrap">
+    <blockquote>Sin soberanía digital<br>no hay <span>soberanía corporal</span>.</blockquote>
+    <p class="attribution">Repoblar los entornos digitales es una acción de desobediencia epistémica y política: no vamos a pedir permiso para existir en los territorios digitales. Vamos a construirlos con nuestras manos, nuestras herramientas, nuestras luchas y nuestras diversidades.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Informe elaborado desde una perspectiva sociológica <span class="fred">transfeminista</span>.</div>
+    <div>Entornos Digitales · 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
